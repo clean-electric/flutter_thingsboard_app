@@ -37,10 +37,11 @@ class _TbProgressIndicatorState extends State<TbProgressIndicator>
   void initState() {
     super.initState();
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 1500),
-        vsync: this,
-        upperBound: 1,
-        animationBehavior: AnimationBehavior.preserve);
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+      upperBound: 1,
+      animationBehavior: AnimationBehavior.preserve,
+    );
     _rotation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
     _controller.repeat();
   }

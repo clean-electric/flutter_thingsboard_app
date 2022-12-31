@@ -40,13 +40,15 @@ class TbLogsFilter extends LogFilter {
 class TbLogger {
   final _logger = Logger(
       filter: TbLogsFilter(),
-      printer: PrefixPrinter(PrettyPrinter(
-          methodCount: 0,
-          errorMethodCount: 8,
-          lineLength: 200,
-          colors: false,
-          printEmojis: true,
-          printTime: false)),
+      printer: PrefixPrinter(
+        PrettyPrinter(
+            methodCount: 0,
+            errorMethodCount: 8,
+            lineLength: 200,
+            colors: false,
+            printEmojis: true,
+            printTime: false),
+      ),
       output: TbLogOutput());
 
   void verbose(dynamic message, [dynamic error, StackTrace? stackTrace]) {
