@@ -49,11 +49,7 @@ mixin DeviceProfilesBase on EntitiesBase<DeviceProfileInfo, PageLink> {
   @override
   Widget buildEntityGridCard(
       BuildContext context, DeviceProfileInfo deviceProfile) {
-    //todo to remove the card in device tab
-    // return DeviceProfileCard(tbContext, deviceProfile);
-    return Container(
-      color: Colors.transparent,
-    );
+    return DeviceProfileCard(tbContext, deviceProfile);
   }
 
   @override

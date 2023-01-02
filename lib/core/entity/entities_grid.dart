@@ -43,11 +43,8 @@ class _EntitiesGridState<T, P> extends BaseEntitiesState<T, P> {
     //             itemBuilder: (context, item, index) => EntityGridCard<T>(
     //                   item,
     //                   key: widget.getKey(item),
-    //                   //todo to change the card in devices tab
-    //                   // entityCardWidgetBuilder: widget.buildEntityGridCard,
-    //                   entityCardWidgetBuilder: (context, entity) {
-    //                     return Container();
-    //                   },
+    //                   entityCardWidgetBuilder: widget.buildEntityGridCard,
+
     //                   onEntityTap: widget.onEntityTap,
     //                   settings: widget.entityGridCardSettings(item),
     //                 ),
