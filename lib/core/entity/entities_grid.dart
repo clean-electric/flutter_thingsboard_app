@@ -6,14 +6,11 @@ import 'entities_base.dart';
 import 'entity_grid_card.dart';
 
 mixin EntitiesGridStateBase on StatefulWidget {
-
   @override
   _EntitiesGridState createState() => _EntitiesGridState();
-
 }
 
 class _EntitiesGridState<T, P> extends BaseEntitiesState<T, P> {
-
   _EntitiesGridState() : super();
 
   @override
@@ -24,39 +21,41 @@ class _EntitiesGridState<T, P> extends BaseEntitiesState<T, P> {
     if (heading != null) {
       slivers.add(SliverPadding(
           padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
-          sliver: SliverToBoxAdapter(
-              child: heading
-          )));
+          sliver: SliverToBoxAdapter(child: heading)));
     }
-    slivers.add(SliverPadding(
-        padding: EdgeInsets.all(16),
-        sliver: PagedSliverGrid(
-            showNewPageProgressIndicatorAsGridChild: false,
-            showNewPageErrorIndicatorAsGridChild: false,
-            showNoMoreItemsIndicatorAsGridChild: false,
-            pagingController: pagingController,
-            // padding: EdgeInsets.all(16),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: gridChildAspectRatio,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 16,
-              crossAxisCount: 2,
-            ),
-            builderDelegate: PagedChildBuilderDelegate<T>(
-                itemBuilder: (context, item, index) => EntityGridCard<T>(
-                  item,
-                  key: widget.getKey(item),
-                  entityCardWidgetBuilder: widget.buildEntityGridCard,
-                  onEntityTap: widget.onEntityTap,
-                  settings: widget.entityGridCardSettings(item),
-                ),
-                firstPageProgressIndicatorBuilder: firstPageProgressIndicatorBuilder,
-                newPageProgressIndicatorBuilder: newPageProgressIndicatorBuilder,
-                noItemsFoundIndicatorBuilder: noItemsFoundIndicatorBuilder
-            )
-        )));
-    return CustomScrollView(
-      slivers: slivers
-    );
+    // todo uncomment to bring the devices card back
+    // slivers.add(SliverPadding(
+    //     padding: EdgeInsets.all(16),
+    //     sliver: PagedSliverGrid(
+    //         showNewPageProgressIndicatorAsGridChild: false,
+    //         showNewPageErrorIndicatorAsGridChild: false,
+    //         showNoMoreItemsIndicatorAsGridChild: false,
+    //         pagingController: pagingController,
+    //         // padding: EdgeInsets.all(16),
+    //         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    //           childAspectRatio: gridChildAspectRatio,
+    //           crossAxisSpacing: 16,
+    //           mainAxisSpacing: 16,
+    //           crossAxisCount: 2,
+    //         ),
+    //         builderDelegate: PagedChildBuilderDelegate<T>(
+    //
+    //             itemBuilder: (context, item, index) => EntityGridCard<T>(
+    //                   item,
+    //                   key: widget.getKey(item),
+    //                   //todo to change the card in devices tab
+    //                   // entityCardWidgetBuilder: widget.buildEntityGridCard,
+    //                   entityCardWidgetBuilder: (context, entity) {
+    //                     return Container();
+    //                   },
+    //                   onEntityTap: widget.onEntityTap,
+    //                   settings: widget.entityGridCardSettings(item),
+    //                 ),
+    //             firstPageProgressIndicatorBuilder:
+    //                 firstPageProgressIndicatorBuilder,
+    //             newPageProgressIndicatorBuilder:
+    //                 newPageProgressIndicatorBuilder,
+    //             noItemsFoundIndicatorBuilder: noItemsFoundIndicatorBuilder))));
+    return CustomScrollView(slivers: slivers);
   }
 }

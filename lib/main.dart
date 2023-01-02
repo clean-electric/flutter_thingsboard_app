@@ -111,7 +111,7 @@ class ThingsboardAppState extends State<ThingsboardApp>
     return _mainStackController.close(0, animate: animate);
   }
 
-  Future<bool> _openDashboard({bool animate: true}) async {
+  Future<bool> _openDashboard({bool animate = true}) async {
     if (!isDashboardOpen()) {
       _mainDashboardPageController.activateDashboard();
     }
