@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:universal_platform/universal_platform.dart';
+
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/foundation.dart';
@@ -9,11 +9,12 @@ import 'package:package_info/package_info.dart';
 import 'package:thingsboard_app/constants/app_constants.dart';
 import 'package:thingsboard_app/core/auth/oauth2/app_secret_provider.dart';
 import 'package:thingsboard_app/core/auth/oauth2/tb_oauth2_client.dart';
+import 'package:thingsboard_app/core/context/tb_context_widget.dart';
 import 'package:thingsboard_app/modules/main/main_page.dart';
+import 'package:thingsboard_app/utils/services/tb_app_storage.dart';
 import 'package:thingsboard_app/utils/services/widget_action_handler.dart';
 import 'package:thingsboard_client/thingsboard_client.dart';
-import 'package:thingsboard_app/utils/services/tb_app_storage.dart';
-import 'package:thingsboard_app/core/context/tb_context_widget.dart';
+import 'package:universal_platform/universal_platform.dart';
 
 enum NotificationType { info, warn, success, error }
 
@@ -52,27 +53,27 @@ class TbLogger {
       output: TbLogOutput());
 
   void verbose(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    _logger.v(message, error, stackTrace);
+    _logger.v(message, error: error, stackTrace: stackTrace);
   }
 
   void debug(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    _logger.d(message, error, stackTrace);
+    _logger.d(message, error: error, stackTrace: stackTrace);
   }
 
   void info(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    _logger.i(message, error, stackTrace);
+    _logger.i(message, error: error, stackTrace: stackTrace);
   }
 
   void warn(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    _logger.w(message, error, stackTrace);
+    _logger.w(message, error: error, stackTrace: stackTrace);
   }
 
   void error(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    _logger.e(message, error, stackTrace);
+    _logger.e(message, error: error, stackTrace: stackTrace);
   }
 
   void fatal(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    _logger.wtf(message, error, stackTrace);
+    _logger.wtf(message, error: error, stackTrace: stackTrace);
   }
 }
 

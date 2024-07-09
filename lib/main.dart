@@ -1,13 +1,12 @@
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:universal_platform/universal_platform.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:thingsboard_app/config/routes/router.dart';
 import 'package:thingsboard_app/core/context/tb_context.dart';
 import 'package:thingsboard_app/modules/dashboard/main_dashboard_page.dart';
 import 'package:thingsboard_app/widgets/two_page_view.dart';
+import 'package:universal_platform/universal_platform.dart';
 
 import 'config/themes/tb_theme.dart';
 import 'generated/l10n.dart';
@@ -16,8 +15,8 @@ final appRouter = ThingsboardAppRouter();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-//  await FlutterDownloader.initialize();
-//  await Permission.storage.request();
+  // await FlutterDownloader.initialize();
+  // await Permission.storage.request();
 
   if (UniversalPlatform.isAndroid) {
     await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);

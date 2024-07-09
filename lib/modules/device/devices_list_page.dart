@@ -51,42 +51,54 @@ class _DevicesListPageState extends TbPageState<DevicesListPage> {
             ? '${S.of(context).active}'
             : '${S.of(context).inactive}';
       }
-      Column title =
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(titleText,
+      Column title = Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            titleText,
             style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: subTitleText != null ? 16 : 20,
-                height: subTitleText != null ? 20 / 16 : 24 / 20)),
-        if (subTitleText != null)
-          Text(subTitleText,
+              fontWeight: FontWeight.w500,
+              fontSize: subTitleText != null ? 16 : 20,
+              height: subTitleText != null ? 20 / 16 : 24 / 20,
+            ),
+          ),
+          if (subTitleText != null)
+            Text(
+              subTitleText,
               style: TextStyle(
-                  color: Theme.of(context)
-                      .primaryTextTheme
-                      .headline6!
-                      .color!
-                      .withAlpha((0.38 * 255).ceil()),
-                  fontSize: 12,
-                  fontWeight: FontWeight.normal,
-                  height: 16 / 12))
-      ]);
+                color: Theme.of(context)
+                    .primaryTextTheme
+                    .headlineSmall!
+                    .color!
+                    .withAlpha((0.38 * 255).ceil()),
+                fontSize: 12,
+                fontWeight: FontWeight.normal,
+                height: 16 / 12,
+              ),
+            )
+        ],
+      );
 
-      appBar = TbAppBar(tbContext, title: title, actions: [
-        IconButton(
-          icon: Icon(Icons.search),
-          onPressed: () {
-            List<String> params = [];
-            params.add('search=true');
-            if (widget.deviceType != null) {
-              params.add('deviceType=${widget.deviceType}');
-            }
-            if (widget.active != null) {
-              params.add('active=${widget.active}');
-            }
-            navigateTo('/deviceList?${params.join('&')}');
-          },
-        )
-      ]);
+      appBar = TbAppBar(
+        tbContext,
+        title: title,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              List<String> params = [];
+              params.add('search=true');
+              if (widget.deviceType != null) {
+                params.add('deviceType=${widget.deviceType}');
+              }
+              if (widget.active != null) {
+                params.add('active=${widget.active}');
+              }
+              navigateTo('/deviceList?${params.join('&')}');
+            },
+          )
+        ],
+      );
     }
     return Scaffold(appBar: appBar, body: devicesList);
   }

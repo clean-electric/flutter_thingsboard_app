@@ -205,7 +205,6 @@ class _EntitiesListWidgetState<T, P>
     return FadingEdgeScrollView.fromScrollView(
         gradientFractionOnStart: 0.2,
         gradientFractionOnEnd: 0.2,
-        shouldDisposeScrollController: true,
         child: ListView(
             scrollDirection: Axis.horizontal,
             controller: ScrollController(),
