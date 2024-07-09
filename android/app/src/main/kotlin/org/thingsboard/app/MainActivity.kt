@@ -17,4 +17,6 @@ class MainActivity: FlutterActivity() {
         channel.setMethodCallHandler(TbWebAuthHandler(this))
     }
 
+
+
 }
